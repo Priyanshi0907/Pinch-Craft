@@ -53,6 +53,7 @@ interface GameState {
   stopTimer: () => void;
   resetTimer: () => void;
   addLeaderboardEntry: (entry: LeaderboardEntry) => void;
+  deleteLeaderboardEntry: (id: string) => void;
   resetGame: () => void;
   checkVictory: () => boolean;
   calculateScore: () => number;
@@ -133,6 +134,9 @@ export const useGameStore = create<GameState>()(
       resetTimer: () => set({ timer: 0 }),
       addLeaderboardEntry: (entry) => set((state) => ({
         leaderboard: [...state.leaderboard, entry].sort((a, b) => b.score - a.score)
+      })),
+      deleteLeaderboardEntry: (id) => set((state) => ({
+        leaderboard: state.leaderboard.filter((entry) => entry.id !== id)
       })),
       resetGame: () => set({
         phase: 'idle',
