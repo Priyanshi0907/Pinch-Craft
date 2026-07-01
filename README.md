@@ -67,7 +67,7 @@ PinchCraft/
 ### Installation
 
 ```bash
-git clone https://github.com/<Priyanshi0907>/Pinch-Craft.git
+git clone https://github.com/Priyanshi0907/Pinch-Craft.git
 npm install
 ```
 
